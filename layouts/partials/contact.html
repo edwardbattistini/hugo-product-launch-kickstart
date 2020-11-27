@@ -1,0 +1,47 @@
+<div id="form" class="box px-4 py-4">
+    <div class="head mb-4">
+        <h1 class="is-secondary has-text-weight-bold is-size-4">Request a call back</h1>
+        <p class="is-size-6"> Our team is dedicated to answer all your questions.</p>
+    </div>
+    
+    <form name="contact" method="post" netlify-honeypot="bot-field" data-netlify-recaptcha="true" data-netlify="true"
+        id="contact">
+        <div class="field">
+            <p class="is-hidden"><label>Don’t fill this out if you are human <input name="bot-field"></label></p>
+            <label class="label is-size-7">Name</label>
+            <div class="control">
+                <input class="input"  type="text" placeholder="Name">
+            </div>
+        </div>
+        <div class="field">
+            <p class="is-hidden"><label>Don’t fill this out if you are human <input name="bot-field"></label></p>
+            <label class="label is-size-7">Company</label>
+            <div class="control">
+                <input class="input" type="text" placeholder="Name">
+            </div>
+        </div>
+        <div class="field">
+            <label class="label is-size-7">Phone</label>
+            <div class="control">
+                <input class="input" type="phone" placeholder="Your email">
+            </div>
+        </div>
+        <div class="field">
+            <label class="label is-size-7">Email</label>
+            <div class="control">
+                <input class="input" type="email" placeholder="Your email">
+            </div>
+        </div>
+        <div class="field">
+            <p class="is-hidden">
+                <label>Don’t fill this out if you are human <input name="bot-field"></label>
+            </p>
+        </div>
+        <div class="control">
+            <div data-netlify-recaptcha="true"></div><br>
+        </div>
+        <div role="button" id="button" class="control">
+            <button aria-label="Submit" type="submit" class="button is-dark">Submit</button>
+        </div>
+    </form>
+</div>

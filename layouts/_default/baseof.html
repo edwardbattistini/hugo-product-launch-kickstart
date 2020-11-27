@@ -8,7 +8,6 @@
         {{ block "js-include" . }}
         {{ end }}
         <!-- Include page specific scripts -->
-        {{ block "customScripts" . }}
-        {{ end }}
+        {{ partial "customScript" . }}
     </body>
 </html>

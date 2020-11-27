@@ -1,11 +1,19 @@
 <head>
+    {{ $options := (dict "outputStyle" "compressed") }}
+    {{ $sass := resources.Get "css/site.sass" }}
+    {{ if $.Site.Params.postcss }}
+    {{ .Scratch.Set "sass" ($sass | resources.ToCSS $options | postCSS | resources.Minify | resources.Fingerprint "sha512") }}
+    {{ else }}
+    {{ .Scratch.Set "sass" ($sass | resources.ToCSS $options | resources.Minify | resources.Fingerprint "sha512") }}
+    {{ end }}
     {{ block "head" . }}
     {{ partial "head/metadata.html" . }}
     {{ partial "head/openGraph.html" . }}
     {{ partial "head/favicons.html" . }}
-    {{ partial "head/css.html" . }}
     {{ end }}
     <!-- Include page specific css -->
     {{ block "customCSS" . }}
     {{ end }}
+    <link rel="stylesheet" href='{{ (.Scratch.Get "sass").Permalink }}'
+        integrity='{{ (.Scratch.Get "sass").Data.Integrity }}'>
 </head>
