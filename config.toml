@@ -1,5 +1,10 @@
-baseURL = "http://example.org/"
+baseURL = ""
 languageCode = "en-us"
-title = "My New Hugo Site"
+title = "Jaws Monitoring Systems"
 theme = "introduction"
+
+canonifyURLs = true
 mainSections = ["posts"]
+
+buildDrafts = false
+disableFastRender = true
