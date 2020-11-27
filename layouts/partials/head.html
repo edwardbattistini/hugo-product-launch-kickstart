@@ -6,14 +6,39 @@
     {{ else }}
     {{ .Scratch.Set "sass" ($sass | resources.ToCSS $options | resources.Minify | resources.Fingerprint "sha512") }}
     {{ end }}
-    {{ block "head" . }}
+    <!-- <meta http-equiv="refresh" content="10"> -->
     {{ partial "head/metadata.html" . }}
     {{ partial "head/openGraph.html" . }}
     {{ partial "head/favicons.html" . }}
-    {{ end }}
-    <!-- Include page specific css -->
-    {{ block "customCSS" . }}
-    {{ end }}
+    <title>
+        {{ if (eq .Page.Kind "taxonomy") }}
+        Posts tagged with
+        {{ end }}
+        {{ .Title }} {{.Date.Format "2006" }}
+        {{ if (and $.Site.Params.includeAuthorInTitle (in (slice "page" "taxonomy") .Page.Kind)) }} |
+        {{ $.Site.Params.author }} {{ end }}
+    </title>
+    {{/*  favicons  */}}
+    <link rel="apple-touch-icon" sizes="180x180" href="fav/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="fav/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="fav/favicon-16x16.png">
+	<link rel="manifest" href="fav/site.webmanifest">
+	<link rel="mask-icon" href="fav/safari-pinned-tab.svg" color="#5bbad5">
+	<meta name="msapplication-TileColor" content="#ffffff">
+	<meta name="theme-color" content="#ffffff">
+
+    <link rel="canonical" href="{{ .Permalink }}">
     <link rel="stylesheet" href='{{ (.Scratch.Get "sass").Permalink }}'
         integrity='{{ (.Scratch.Get "sass").Data.Integrity }}'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="referrer" content="no-referrer">
+    <script src="https://kit.fontawesome.com/da39d58de5.js" crossorigin="anonymous"></script>
+    {{ with .Site.Params.author }}
+    <meta name="author" content="{{ . }}">
+    {{ end }}
+    <meta name="description"
+        content="{{ with .Description }}{{ . }}{{ else }}{{if .IsPage}}{{ .Summary }}{{ else }}{{ with .Site.Params.description }}{{ . }}{{ end }}{{ end }}{{ end }}">
 </head>
