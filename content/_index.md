@@ -1,6 +1,6 @@
 ---
 title: "24/7 Monitoring"
-draft: true
+draft: false
 weight: 0
 img: /images/radar.png
 ---
