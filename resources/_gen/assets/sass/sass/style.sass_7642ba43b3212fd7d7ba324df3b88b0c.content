@@ -7967,7 +7967,6 @@ pre {
   margin: 0 5px; }
 
 .navbar-burger {
-  margin-right: auto;
   color: #141334; }
 
 .navbar-burger:hover {
