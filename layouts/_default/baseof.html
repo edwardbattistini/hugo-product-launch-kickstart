@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode }}">
+    {{ partial "head" . }}
+    <body>
+        <section id="top" class="container-fluid">
+            {{ block "main" . }}{{ end }}
+        </section>
+        {{ block "js-include" . }}
+        {{ end }}
+        <!-- Include page specific scripts -->
+        {{ block "customScripts" . }}
+        {{ end }}
+    </body>
+</html>

@@ -1,0 +1,11 @@
+<head>
+    {{ block "head" . }}
+    {{ partial "head/metadata.html" . }}
+    {{ partial "head/openGraph.html" . }}
+    {{ partial "head/favicons.html" . }}
+    {{ partial "head/css.html" . }}
+    {{ end }}
+    <!-- Include page specific css -->
+    {{ block "customCSS" . }}
+    {{ end }}
+</head>

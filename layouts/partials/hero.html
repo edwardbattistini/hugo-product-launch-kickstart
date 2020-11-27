@@ -1,0 +1,24 @@
+<section class="hero is-primary is-medium">
+    <div class="hero-body">
+        <div class="container has-text-centered">
+            <figure class="image container is-64x64 mb-4">
+                <img src="{{ .Params.img }}">
+            </figure>
+            <h1 class="title is-size-1 is-size-1-desktop has-text-weight-bold ">
+                {{ .Params.title }}</h1>
+            <p class="subtitle is-size-4 has-text-weight-semibold has-text-grey">
+                {{ .Content }}</p>
+            {{ if .Params.hero.img }}
+            <div class="hero-foot">
+                <div class="columns is-marginless is-gapless is-centered">
+                    <div class="column is-12-touch is-6-desktop">
+                        <figure class="image is-4by3">
+                            <img src="/images/{{ .Params.hero.img }}">
+                        </figure>
+                    </div>
+                </div>
+            </div>
+            {{ end }}
+        </div>
+    </div>
+</section>
