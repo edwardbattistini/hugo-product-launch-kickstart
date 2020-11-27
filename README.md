@@ -3,3 +3,5 @@ just run
 
 then run 
 ` hugo server`
+
+slack should display updates of the repository
